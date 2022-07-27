@@ -9,7 +9,25 @@ public class BankAccount {
 	private String mail;
 
 	public BankAccount() {
-		
+
+	}
+
+	public void withDrawn(double amount) {
+		if (amount >= this.getBalance())
+			System.out.println("Your money not enough");
+		else {
+			this.setBalance(this.getBalance() - amount);
+			System.out.println("Get money successfully! Your current balance: " + this.getBalance());
+		}
+	}
+
+	public void deposit(double amount) {
+		if (amount >= 0) {
+			this.setBalance(this.getBalance() + amount);
+			System.out.println("Send money to account successfully! Your current balance: " + this.getBalance());
+		} else 
+			System.out.println("Amount invalid");
+			
 	}
 
 	public BankAccount(String accountNumber, double balance, String customerNameString, String phone, String mail) {
@@ -20,7 +38,7 @@ public class BankAccount {
 		this.phone = phone;
 		this.mail = mail;
 	}
-	
+
 	public String getAccountNumber() {
 		return accountNumber;
 	}
